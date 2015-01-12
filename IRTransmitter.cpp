@@ -1,7 +1,7 @@
 /*
  * IR library v1.0.0 (20141122) made by Thijs Bekke https://github.com/thijsbekke
  * See IRTransmitter.h for details.
- *
+ * Fork of https://github.com/adafruit/Nikon-Intervalometer 
  * License: GPLv3. See license.txt
  */
 

@@ -1,19 +1,26 @@
 
 #include <IRTransmitter.h>
+#include <IRReceiver.h>
 #include <IRTVSamsung.h>
 #include <IRLight.h>
 
 IRTVSamsung tv(13);
 IRLight light(13);
 
+IRReceiver receiver(2);
+
+ 
+// we will store up to 100 pulse pairs (this is -a lot-)
+
+
 int mode = 1;
 
 const char helpText1[] PROGMEM = 
     "\n"
     "Available commands:" "\n"
-    " tv                - Set mode to tv" "\n"  
-    " light             - Set mode to tv" "\n"  
     
+    " read" "\n"
+    " tv_on" "\n"
     " tv_off" "\n"
     " volume_up" "\n"
     " volume_down" "\n"
@@ -77,7 +84,12 @@ void setup()
 static void handleInput (String c)
 {
     Serial.println(c);
-    if(c == "tv_on")
+    if(c == "read")
+    {
+        Serial.println("Read code");
+        receiver.read();
+
+    } else if(c == "tv_on")
     {
         Serial.println("tv aanzetten");
         tv.on();
